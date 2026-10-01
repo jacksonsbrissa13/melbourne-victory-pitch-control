@@ -1,4 +1,4 @@
-# Run from the MelbVictory_Dashboard project root.
+# Run from the Melbourne Victory pitch-control project root.
 # These tables share McByte frame numbers; player identity mapping comes later.
 clip_dir <- file.path("data", "processed", "mv_clip")
 frame_time_mapping <- readr::read_csv(

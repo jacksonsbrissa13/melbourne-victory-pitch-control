@@ -48,7 +48,7 @@ dynamic_events <- readr::read_csv(file.path(match_dir, match_files[[3]]), show_c
 phases_of_play <- readr::read_csv(file.path(match_dir, match_files[[4]]), show_col_types = FALSE)
 
 # Tracking is newline-delimited JSON with nested player/ball records. Keep its
-# nested structure intact initially; flatten only fields needed by dashboard.
+# nested structure intact initially; flatten only fields needed by the analysis.
 tracking <- jsonlite::stream_in(
   file(file.path(match_dir, match_files[[2]]), open = "r"),
   verbose = FALSE,

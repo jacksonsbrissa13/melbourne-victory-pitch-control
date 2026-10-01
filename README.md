@@ -35,7 +35,7 @@ McByte++ supplies video tracks and frame timing for review. The final control mo
 
 ## Start with the match data
 
-Requires R and an internet connection. Open `MelbVictoryDashboard.Rproj`, then run:
+Requires R and an internet connection. Open `MelbourneVictoryPitchControl.Rproj`, then run:
 
 ```r
 source("setup.R")
