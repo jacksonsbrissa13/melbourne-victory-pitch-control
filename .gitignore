@@ -1,0 +1,27 @@
+# Source data and generated analysis remain local.
+data/raw/
+data/processed/*
+!data/processed/mv_clip/
+data/processed/mv_clip/*
+!data/processed/mv_clip/time_alignment.json
+!data/processed/mv_clip/spatial_calibration.json
+!data/processed/mv_clip/spatial_validation_anchors.json
+!data/processed/mv_clip/MV_Clip_metadata.json
+!data/processed/mv_clip/broadcast_clock_anchors.csv
+*.mp4
+*.mov
+*.pth
+*.pt
+*.pth.tar*
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+.DS_Store

@@ -1,0 +1,28 @@
+{
+  "match_id": "2017461",
+  "source_video": "MV_Clip.mp4",
+  "source_info": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_type": "audio",
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "11.335011"
+    }
+  },
+  "tracking_fps": 10,
+  "frame_count": 113,
+  "mcbyte_revision": "be1bbc03f18e33e93e0a359bbcbfdfc4dc4ab6b9",
+  "mcbyte_run": "victory_auckland_leg1_20261001_115458_366238",
+  "match_clock_offset_seconds": null,
+  "player_id_mapping": null
+}

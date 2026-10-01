@@ -1,0 +1,285 @@
+{
+  "note": "Manual review points excluded from calibration fit; approximate ground contacts with provisional shirt identities.",
+  "anchors": [
+    {
+      "frame": 13,
+      "team_id": 868,
+      "shirt_number": 6,
+      "image_x": 347.0,
+      "image_y": 325.0
+    },
+    {
+      "frame": 13,
+      "team_id": 868,
+      "shirt_number": 14,
+      "image_x": 636.0,
+      "image_y": 274.0
+    },
+    {
+      "frame": 13,
+      "team_id": 868,
+      "shirt_number": 8,
+      "image_x": 926.0,
+      "image_y": 386.0
+    },
+    {
+      "frame": 13,
+      "team_id": 868,
+      "shirt_number": 7,
+      "image_x": 1055.0,
+      "image_y": 316.0
+    },
+    {
+      "frame": 13,
+      "team_id": 868,
+      "shirt_number": 9,
+      "image_x": 1238.0,
+      "image_y": 295.0
+    },
+    {
+      "frame": 13,
+      "team_id": 868,
+      "shirt_number": 17,
+      "image_x": 842.0,
+      "image_y": 133.0
+    },
+    {
+      "frame": 13,
+      "team_id": 868,
+      "shirt_number": 16,
+      "image_x": 443.0,
+      "image_y": 506.0
+    },
+    {
+      "frame": 13,
+      "team_id": 4177,
+      "shirt_number": 11,
+      "image_x": 522.0,
+      "image_y": 547.0
+    },
+    {
+      "frame": 38,
+      "team_id": 868,
+      "shirt_number": 6,
+      "image_x": 213.0,
+      "image_y": 392.0
+    },
+    {
+      "frame": 38,
+      "team_id": 868,
+      "shirt_number": 14,
+      "image_x": 316.0,
+      "image_y": 295.0
+    },
+    {
+      "frame": 38,
+      "team_id": 868,
+      "shirt_number": 8,
+      "image_x": 653.0,
+      "image_y": 457.0
+    },
+    {
+      "frame": 38,
+      "team_id": 868,
+      "shirt_number": 7,
+      "image_x": 790.0,
+      "image_y": 337.0
+    },
+    {
+      "frame": 38,
+      "team_id": 868,
+      "shirt_number": 9,
+      "image_x": 744.0,
+      "image_y": 273.0
+    },
+    {
+      "frame": 38,
+      "team_id": 868,
+      "shirt_number": 17,
+      "image_x": 383.0,
+      "image_y": 159.0
+    },
+    {
+      "frame": 38,
+      "team_id": 4177,
+      "shirt_number": 2,
+      "image_x": 563.0,
+      "image_y": 186.0
+    },
+    {
+      "frame": 38,
+      "team_id": 4177,
+      "shirt_number": 4,
+      "image_x": 835.0,
+      "image_y": 279.0
+    },
+    {
+      "frame": 38,
+      "team_id": 4177,
+      "shirt_number": 15,
+      "image_x": 958.0,
+      "image_y": 377.0
+    },
+    {
+      "frame": 38,
+      "team_id": 4177,
+      "shirt_number": 23,
+      "image_x": 698.0,
+      "image_y": 247.0
+    },
+    {
+      "frame": 63,
+      "team_id": 868,
+      "shirt_number": 6,
+      "image_x": 176.0,
+      "image_y": 473.0
+    },
+    {
+      "frame": 63,
+      "team_id": 868,
+      "shirt_number": 14,
+      "image_x": 219.0,
+      "image_y": 391.0
+    },
+    {
+      "frame": 63,
+      "team_id": 868,
+      "shirt_number": 8,
+      "image_x": 762.0,
+      "image_y": 456.0
+    },
+    {
+      "frame": 63,
+      "team_id": 868,
+      "shirt_number": 7,
+      "image_x": 1089.0,
+      "image_y": 492.0
+    },
+    {
+      "frame": 63,
+      "team_id": 868,
+      "shirt_number": 9,
+      "image_x": 505.0,
+      "image_y": 350.0
+    },
+    {
+      "frame": 63,
+      "team_id": 868,
+      "shirt_number": 17,
+      "image_x": 199.0,
+      "image_y": 264.0
+    },
+    {
+      "frame": 63,
+      "team_id": 4177,
+      "shirt_number": 11,
+      "image_x": 330.0,
+      "image_y": 630.0
+    },
+    {
+      "frame": 63,
+      "team_id": 4177,
+      "shirt_number": 4,
+      "image_x": 771.0,
+      "image_y": 344.0
+    },
+    {
+      "frame": 63,
+      "team_id": 4177,
+      "shirt_number": 15,
+      "image_x": 962.0,
+      "image_y": 427.0
+    },
+    {
+      "frame": 63,
+      "team_id": 4177,
+      "shirt_number": 2,
+      "image_x": 503.0,
+      "image_y": 298.0
+    },
+    {
+      "frame": 63,
+      "team_id": 4177,
+      "shirt_number": 23,
+      "image_x": 635.0,
+      "image_y": 330.0
+    },
+    {
+      "frame": 63,
+      "team_id": 4177,
+      "shirt_number": 12,
+      "image_x": 1005.0,
+      "image_y": 285.0
+    },
+    {
+      "frame": 88,
+      "team_id": 868,
+      "shirt_number": 6,
+      "image_x": 350.0,
+      "image_y": 439.0
+    },
+    {
+      "frame": 88,
+      "team_id": 868,
+      "shirt_number": 14,
+      "image_x": 466.0,
+      "image_y": 393.0
+    },
+    {
+      "frame": 88,
+      "team_id": 868,
+      "shirt_number": 8,
+      "image_x": 823.0,
+      "image_y": 417.0
+    },
+    {
+      "frame": 88,
+      "team_id": 868,
+      "shirt_number": 9,
+      "image_x": 410.0,
+      "image_y": 358.0
+    },
+    {
+      "frame": 88,
+      "team_id": 868,
+      "shirt_number": 17,
+      "image_x": 344.0,
+      "image_y": 277.0
+    },
+    {
+      "frame": 88,
+      "team_id": 868,
+      "shirt_number": 16,
+      "image_x": 53.0,
+      "image_y": 617.0
+    },
+    {
+      "frame": 88,
+      "team_id": 4177,
+      "shirt_number": 11,
+      "image_x": 633.0,
+      "image_y": 521.0
+    },
+    {
+      "frame": 88,
+      "team_id": 4177,
+      "shirt_number": 4,
+      "image_x": 693.0,
+      "image_y": 357.0
+    },
+    {
+      "frame": 88,
+      "team_id": 4177,
+      "shirt_number": 15,
+      "image_x": 918.0,
+      "image_y": 400.0
+    },
+    {
+      "frame": 88,
+      "team_id": 4177,
+      "shirt_number": 12,
+      "image_x": 1006.0,
+      "image_y": 299.0
+    }
+  ]
+}

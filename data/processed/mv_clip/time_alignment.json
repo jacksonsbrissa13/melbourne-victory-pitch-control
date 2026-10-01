@@ -1,0 +1,45 @@
+{
+  "match_id": "2017461",
+  "period": 1,
+  "status": "event_checked_estimate",
+  "skillcorner_start_seconds_estimated": 1133.3,
+  "skillcorner_start_label": "00:18:53.30",
+  "working_timing_tolerance_seconds": 0.2,
+  "tolerance_note": "Practical review tolerance, not a statistical confidence interval. Confirm spatial alignment before treating timing as final.",
+  "broadcast_clock_start_seconds_estimated": 1132.82,
+  "broadcast_clock_start_bounds_seconds": [
+    1132.8,
+    1132.84
+  ],
+  "broadcast_to_skillcorner_offset_seconds_estimated": 0.48,
+  "playback_rate": 1.0,
+  "clock_transition_method": "Reviewed source frames: old digit at t=n+0.16; next second at t=n+0.20, for n=0 through 11. Midpoint used. Assumes displayed clock increments on whole seconds.",
+  "source_frame_mapping_method": "Decoded-frame MD5 matches original 25fps frames to frames selected by ffmpeg fps=10. Source time differs slightly from 10fps playback time.",
+  "action_anchors": [
+    {
+      "action": "Z. Machach pass release",
+      "source_time_interval_seconds": [
+        6.0,
+        6.04
+      ],
+      "skillcorner_possession_end_seconds": 1139.4,
+      "skillcorner_frame_end": 13904,
+      "implied_start_seconds_approx": 1133.38
+    },
+    {
+      "action": "J. Valadon shot release",
+      "source_time_interval_seconds": [
+        8.4,
+        8.44
+      ],
+      "skillcorner_possession_end_seconds": 1141.7,
+      "skillcorner_frame_end": 13927,
+      "implied_start_seconds_approx": 1133.28
+    }
+  ],
+  "limitations": [
+    "Broadcast clock and SkillCorner action labels do not agree exactly; event-checked offset used for tracking alignment.",
+    "Possession end labels and smoothed ball trajectories limit sub-frame timing precision.",
+    "No player identity mapping or spatial calibration has been performed."
+  ]
+}
