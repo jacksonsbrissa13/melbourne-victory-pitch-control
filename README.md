@@ -4,6 +4,14 @@ I built this football analysis prototype to synchronise open tracking data with 
 
 For this case study, I analysed Melbourne Victory vs Auckland FC on 17 May 2025, in the A-League semi-final first leg. I used SkillCorner match `2017461` and an 11.3-second sequence covering play leading into a Valadon shot.
 
+## Video sample
+
+![Annotated video sample showing team-coloured pitch control, shirt numbers and a synchronised mini pitch](docs/assets/annotated-video-sample.png)
+
+*Sample frame from my annotated clip. Broadcast footage: A-Leagues highlights, with Paramount+ branding retained. Tracking data: SkillCorner. I added the estimated pitch-control surface, shirt labels and synchronised mini pitch. This is a visual example; timing and camera alignment remain approximate.*
+
+## Pitch-only view
+
 ![R pitch-control snapshot](docs/assets/pitch-control-topdown.png)
 
 ## What I wanted to show
@@ -14,7 +22,7 @@ For this case study, I analysed Melbourne Victory vs Auckland FC on 17 May 2025,
 
 I use cyan for Melbourne Victory and orange for Auckland. At each location, my model estimates which team would be more likely to control a hypothetical ball sent there, using player position, velocity, reaction time and ball travel time. I interpret this as an instantaneous spatial-control surface, rather than an occupancy heatmap, pass-success model or goal probability.
 
-I share the MP4 separately. In this repository, I have included code, reviewed calibration inputs and a pitch-only example figure. I have excluded footage, model weights and large generated datasets. My project currently runs as an offline analysis pipeline.
+I share the MP4 separately. In this repository, I have included code, reviewed calibration inputs, a pitch-only example figure and one annotated broadcast still. I have excluded video files, model weights and large generated datasets. My project currently runs as an offline analysis pipeline.
 
 ## My workflow
 
@@ -119,7 +127,7 @@ I built this project using open data, tracking software and publicly shared foot
 - **[thecomeonman / CodaBonito](https://github.com/thecomeonman/CodaBonito)** — R pitch-control examples and football plotting methods informing the R approach.
 - **[mkh1991 / pitch-control](https://github.com/mkh1991/pitch-control)** — modular pitch-control implementation informing model structure and calculation design.
 - **[Vsll92 / football-pitch-control](https://github.com/Vsll92/football-pitch-control)** — visual inspiration for team-colour control surfaces and contested regions.
-- **A-Leagues** — source highlights, titled *Melbourne Victory v Auckland FC – Shark Highlights | Isuzu UTE A-League 2024-25 | Semi-Final Leg One*, published 17 May 2025. Broadcast footage is not included in this repository.
+- **A-Leagues** — source highlights, titled *Melbourne Victory v Auckland FC – Shark Highlights | Isuzu UTE A-League 2024-25 | Semi-Final Leg One*, published 17 May 2025. One annotated broadcast still appears above; video footage is not included in this repository.
 
 I wrote the local R control model and renderer for this project, using the research repositories above as references rather than installed dependencies. Each upstream project, dataset, pretrained model and video retains its own terms and attribution requirements. By publishing my code, I do not grant rights to redistribute those materials.
 
