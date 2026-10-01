@@ -131,6 +131,14 @@ I built this project using open data, tracking software and publicly shared foot
 
 I wrote the local R control model and renderer for this project, using the research repositories above as references rather than installed dependencies. Each upstream project, dataset, pretrained model and video retains its own terms and attribution requirements. By publishing my code, I do not grant rights to redistribute those materials.
 
+## Licence
+
+I release my original project code and documentation under the [MIT licence](LICENSE). You may use, modify and redistribute that work, including commercially, provided you retain the copyright and licence notice.
+
+My MIT licence does not cover upstream software, SkillCorner source data or rights in derived data, pretrained model weights, or the broadcast content in `docs/assets/annotated-video-sample.png`. Those materials retain their own terms and rights. The screenshot is credited above; I do not grant permission to reuse its broadcast content.
+
+I have preserved upstream licence texts and documented each project's role in [third-party notices](THIRD_PARTY_NOTICES.md). The reference projects are credited for methodological or visual inspiration; their inclusion here does not mean I have bundled their software. Anyone running the notebook must also follow the terms of its downloaded dependencies and model weights. These notices do not certify every dependency or weight for commercial use.
+
 ## Development
 
 I developed this as an independent prototype; it is not an official Melbourne Victory or SkillCorner product. Next, I would like to improve camera calibration, review track-to-player identity matching, analyse additional sequences and explore an analyst-facing Shiny interface.
