@@ -1,22 +1,22 @@
 # Melbourne Victory · Pitch Control
 
-A football analysis prototype by Jackson Sbrissa: synchronize open tracking data with broadcast footage, estimate spatial control in R, and display it directly on the pitch with a synchronized mini-pitch inset.
+I built this football analysis prototype to synchronise open tracking data with broadcast footage, estimate spatial control in R, and display it directly on the pitch with a synchronised mini-pitch inset.
 
-**Case study:** Melbourne Victory vs Auckland FC, 17 May 2025, A-League semi-final leg one. SkillCorner match ID: `2017461`. The 11.3-second sequence covers play leading into a Valadon shot.
+For this case study, I analysed Melbourne Victory vs Auckland FC on 17 May 2025, in the A-League semi-final first leg. I used SkillCorner match `2017461` and an 11.3-second sequence covering play leading into a Valadon shot.
 
 ![R pitch-control snapshot](docs/assets/pitch-control-topdown.png)
 
-## What an analyst can see
+## What I wanted to show
 
 - How estimated team control changes as players move and the ball progresses.
 - Team-coloured shirt numbers on the footage and a full-pitch view of the same moment.
 - The influence of off-camera players, with a sensitivity diagnostic for extrapolated positions.
 
-Cyan favours Melbourne Victory; orange favours Auckland. At each location, the model asks which team would be more likely to control a hypothetical ball sent there, using player position, velocity, reaction time and ball travel time. This is an instantaneous spatial-control surface. It is not an occupancy heatmap, pass-success model or goal probability.
+I use cyan for Melbourne Victory and orange for Auckland. At each location, my model estimates which team would be more likely to control a hypothetical ball sent there, using player position, velocity, reaction time and ball travel time. I interpret this as an instantaneous spatial-control surface, rather than an occupancy heatmap, pass-success model or goal probability.
 
-The MP4 is shared separately. This repository contains code, reviewed calibration inputs and a pitch-only example figure; footage, model weights and large generated datasets are excluded. The project currently runs as an offline analysis pipeline.
+I share the MP4 separately. In this repository, I have included code, reviewed calibration inputs and a pitch-only example figure. I have excluded footage, model weights and large generated datasets. My project currently runs as an offline analysis pipeline.
 
-## Pipeline
+## My workflow
 
 ```mermaid
 flowchart LR
@@ -31,22 +31,22 @@ flowchart LR
     R --> O[Annotated MP4 with mini pitch]
 ```
 
-McByte++ supplies video tracks and frame timing for review. The final control model and shirt labels use SkillCorner positions and roster identities. A final mapping from McByte track IDs to player identities has not been assigned.
+I use McByte++ to obtain video tracks and frame timing for review. For the final control model and shirt labels, I use SkillCorner positions and player identities from the match metadata. I have not assigned a final mapping from McByte track IDs to player identities.
 
 ## Start with the match data
 
-Requires R and an internet connection. Open `MelbourneVictoryPitchControl.Rproj`, then run:
+I start by loading the match data into R. To follow the same steps, you need R and an internet connection. Open `MelbourneVictoryPitchControl.Rproj`, then run:
 
 ```r
 source("setup.R")
 source("get_match_data.R")
 ```
 
-This downloads match metadata, extrapolated tracking, dynamic events and phases of play, including the actual Git LFS tracking payload. It loads `match`, `tracking`, `dynamic_events` and `phases_of_play` into R. The tracking download is about 86 MB.
+My download script retrieves match metadata, extrapolated tracking, dynamic events and phases of play, including the actual Git LFS tracking payload. It loads `match`, `tracking`, `dynamic_events` and `phases_of_play` into R. The tracking download is about 86 MB.
 
 ## Reproduce the clip analysis
 
-Full reproduction requires the **same local `MV_Clip.mp4`** used for calibration: 1280×720, 25 fps, about 11.335 seconds. The video is not distributed here. Existing anchors are specific to this sequence; a different clip requires new timing and camera review.
+I calibrated this analysis against a specific local clip: **`MV_Clip.mp4`**, at 1280×720, 25 fps and about 11.335 seconds. To reproduce my clip analysis, you need the same video, which I do not distribute here. My existing anchors are specific to this sequence; a different clip requires new timing and camera review.
 
 1. Install FFmpeg (`ffmpeg` and `ffprobe` on PATH), R dependencies above, and Python dependencies:
 
@@ -71,7 +71,7 @@ Full reproduction requires the **same local `MV_Clip.mp4`** used for calibration
 
 5. Open `data/processed/mv_clip/MV_Clip_pitch_control_minipitch.mp4`. To explore tables in R, run `source("load_synced_clip.R")`.
 
-Each R script above executes its default operation when sourced. Rendering and model calculation run locally without a GPU; McByte++ inference uses the Colab GPU. The saved McByte++ run used revision `be1bbc03f18e33e93e0a359bbcbfdfc4dc4ab6b9`; the notebook currently clones the upstream default branch and records its revision, so future results may differ.
+Each R script above executes its default operation when sourced. I run rendering and model calculation locally without a GPU, and McByte++ inference on the Colab GPU. My saved McByte++ run used revision `be1bbc03f18e33e93e0a359bbcbfdfc4dc4ab6b9`; the notebook currently clones the upstream default branch and records its revision, so future results may differ.
 
 ## Methods and interpretation
 
@@ -82,15 +82,15 @@ Each R script above executes its default operation when sourced. Rendering and m
 | Camera | Corner-projection proxy plus corrections fitted to 78 approximate manual ground contacts across six keyframes. |
 | Spatial review | 40 separate manual observations: median error 20.9 px, 90th percentile 35.6 px, maximum 56.0 px at 1280×720. |
 | Control model | 64×42 grid; reaction time 0.7 s; maximum travel speed 5 m/s; ball speed 15 m/s; arrival SD 0.45 s; control rate 4.3/s. |
-| Video | Translucent grass-masked surface, team-coloured shirt labels, and a synchronized 300×196 px mini pitch. |
+| Video | Translucent grass-masked surface, team-coloured shirt labels, and a synchronised 300×196 px mini pitch. |
 
-The R model is an independently written educational adaptation of arrival-time pitch control. It has not been fitted or probability-calibrated against match outcomes. Numerical mass conservation and convergence checks establish calculation consistency, not predictive accuracy.
+I developed the R model as an educational adaptation of arrival-time pitch control, informed by the repositories credited below. I have not fitted or probability-calibrated it against match outcomes. My numerical mass conservation and convergence checks establish calculation consistency; they do not establish predictive accuracy.
 
-All 22 player positions are included, including extrapolations. A detected-only comparison measures sensitivity to off-camera inputs; its average full-pitch absolute difference is approximately 0.21 for this clip. This diagnostic is not a confidence interval. No goalkeeper bonus or offside filtering is applied.
+I include all 22 player positions, including extrapolations. I also calculate a detected-only comparison to measure sensitivity to off-camera inputs; its average full-pitch absolute difference is approximately 0.21 for this clip. I use this as a sensitivity diagnostic, not a confidence interval. I do not apply a goalkeeper bonus or offside filtering.
 
-Timing and camera alignment remain approximate. Review anchors were selected by the same reviewer, with provisional player correspondences. Video shading can drift; the grass mask can affect coloured clothing. Interpretation should retain these limitations.
+My timing and camera alignment remain approximate. I used manual fit and review anchors selected by the same reviewer, with provisional player correspondences. Video shading can drift, and the grass mask can affect coloured clothing. I retain these limitations when interpreting the visualisation.
 
-Detailed notes: [time synchronization](docs/TIME_SYNC.md), [camera alignment](docs/SPATIAL_ALIGNMENT.md), [pitch-control model and rendering](docs/PITCH_CONTROL.md).
+I have documented further details here: [time synchronisation](docs/TIME_SYNC.md), [camera alignment](docs/SPATIAL_ALIGNMENT.md), [pitch-control model and rendering](docs/PITCH_CONTROL.md).
 
 ## Project files
 
@@ -103,15 +103,15 @@ Detailed notes: [time synchronization](docs/TIME_SYNC.md), [camera alignment](do
 | `pitch_control_model.R` | Estimate arrival-time control and extrapolation sensitivity. |
 | `render_pitch_control.R` | Project the control surface onto footage. |
 | `plot_pitch_control.R` | Produce a standalone pitch chart. |
-| `add_mini_pitch.R` | Add the synchronized pitch chart to the MP4. |
+| `add_mini_pitch.R` | Add the synchronised pitch chart to the MP4. |
 | `load_synced_clip.R` | Load saved analysis tables into R. |
 | `data/processed/mv_clip/*.json` | Curated timing, calibration, review anchors and original metadata. |
 
-Generated outputs stay under `data/processed/mv_clip/`. Modify model settings in `pitch_control_parameters()`; adjust rendering opacity with `render_pitch_control(opacity = 0.35)` after sourcing its script. Re-review spatial anchors whenever the time offset or clip changes.
+I save generated outputs under `data/processed/mv_clip/`. Modify model settings in `pitch_control_parameters()`; adjust rendering opacity with `render_pitch_control(opacity = 0.35)` after sourcing its script. Re-review spatial anchors whenever the time offset or clip changes.
 
 ## Credits and source repositories
 
-This project builds on open data, tracking software and publicly shared football analytics methods. Credit belongs to their authors and contributors:
+I built this project using open data, tracking software and publicly shared football analytics methods. I credit the following authors and contributors for the data, software and ideas that informed my work:
 
 - **[SkillCorner / opendata](https://github.com/SkillCorner/opendata)** — match metadata, player and ball tracking, dynamic events, phases of play and field-of-view projections. Primary data source.
 - **[tstanczyk95 / McBytePlusPlus](https://github.com/tstanczyk95/McBytePlusPlus)** — McByte++ tracking software and pretrained-model setup used by the Colab notebook. Upstream code and weights remain external dependencies.
@@ -121,10 +121,10 @@ This project builds on open data, tracking software and publicly shared football
 - **[Vsll92 / football-pitch-control](https://github.com/Vsll92/football-pitch-control)** — visual inspiration for team-colour control surfaces and contested regions.
 - **A-Leagues** — source highlights, titled *Melbourne Victory v Auckland FC – Shark Highlights | Isuzu UTE A-League 2024-25 | Semi-Final Leg One*, published 17 May 2025. Broadcast footage is not included in this repository.
 
-The local R control model and renderer are independently written; the research repositories above are references rather than installed dependencies. Each upstream project, dataset, pretrained model and video retains its own terms and attribution requirements. Publishing this code does not grant rights to redistribute those materials.
+I wrote the local R control model and renderer for this project, using the research repositories above as references rather than installed dependencies. Each upstream project, dataset, pretrained model and video retains its own terms and attribution requirements. By publishing my code, I do not grant rights to redistribute those materials.
 
 ## Development
 
-This is an independent prototype, not an official Melbourne Victory or SkillCorner product. Possible next steps include tighter camera calibration, reviewed track-to-player identity matching, additional sequences and an analyst-facing Shiny interface.
+I developed this as an independent prototype; it is not an official Melbourne Victory or SkillCorner product. Next, I would like to improve camera calibration, review track-to-player identity matching, analyse additional sequences and explore an analyst-facing Shiny interface.
 
-For changes, describe the football question, affected pipeline stage and assumptions. Include reproducible inputs where redistribution is permitted; avoid committing video, weights, credentials or generated bulk data.
+I welcome suggestions and contributions. For proposed changes, please describe the football question, affected pipeline stage and assumptions. Include reproducible inputs where redistribution is permitted; avoid committing video, weights, credentials or generated bulk data.
